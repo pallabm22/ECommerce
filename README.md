@@ -2,37 +2,56 @@
 
 ## Overview
 
-This project classifies product descriptions into various categories using a machine learning model. The dataset contains product names or descriptions labeled under categories such as "Household," "Electronics," "Clothing & Accessories," and "Books."
+This project focuses on classifying product descriptions into various categories using a machine learning model. The dataset consists of product names or descriptions labeled under categories such as "Household," "Electronics," "Clothing & Accessories," and "Books." This classification task can be helpful in building recommendation systems, automating product categorization for e-commerce platforms, and improving search results.
 
-### Dataset Information:
+### Dataset Information
+
 - **Total Rows:** 24,000
 - **Columns:**
-  - `Text`: The product description/name.
-  - `Label`: The product category label.
+  - `Text`: The product description or name.
+  - `Label`: The product category label, such as "Household," "Electronics," "Clothing & Accessories," or "Books."
 
 ### Example Rows:
 
-| Text | Label |
-| --- | --- |
-| Urban Ladder Eisner Low Back Study-Office Computer Chair (Brown) | Household |
-| Contrast Living Wooden Decorative Box, Painted Multicolour | Household |
-| IO Crest SY-PCI40010 PCI RAID Host Controller | Electronics |
-| ISAKAA Baby Socks from Just Born to 8 Years - Pack of 5 Pairs | Clothing & Accessories |
-| Indira Designer Women's Art Mysore Silk Saree (Green) | Clothing & Accessories |
+| Text                                                                | Label                 |
+|---------------------------------------------------------------------|-----------------------|
+| Urban Ladder Eisner Low Back Study-Office Computer Chair (Brown)     | Household             |
+| Contrast Living Wooden Decorative Box, Painted Multicolour           | Household             |
+| IO Crest SY-PCI40010 PCI RAID Host Controller                        | Electronics           |
+| ISAKAA Baby Socks from Just Born to 8 Years - Pack of 5 Pairs        | Clothing & Accessories|
+| Indira Designer Women's Art Mysore Silk Saree (Green)                | Clothing & Accessories|
+
+---
 
 ## Machine Learning Pipeline
 
-The classification model is built using a **TF-IDF Vectorizer** and a **K-Nearest Neighbors (KNN)** classifier. The TF-IDF vectorizer converts the product descriptions into numerical features based on the frequency of words, and the KNN classifier is used to predict the category of the product based on these features.
+The classification model is built using a **TF-IDF Vectorizer** and a **K-Nearest Neighbors (KNN)** classifier. Below is a brief description of the pipeline:
 
-Model Performance
-The model was trained and evaluated on the dataset with the following results:
-              precision    recall  f1-score   support
+1. **TF-IDF Vectorizer**: 
+   - Converts product descriptions into numerical feature vectors based on term frequency-inverse document frequency (TF-IDF).
+   
+2. **K-Nearest Neighbors Classifier**: 
+   - A supervised machine learning algorithm used to predict the product category based on the product description's TF-IDF vector. It classifies a product based on the categories of its nearest neighbors in the feature space.
 
-           0       0.96      0.95      0.95      1206
-           1       0.97      0.96      0.97      1209
-           2       0.98      0.97      0.97      1208
-           3       0.95      0.97      0.96      1177
+---
 
-    accuracy                           0.96      4800
-   macro avg       0.96      0.96      0.96      4800
-weighted avg       0.96      0.96      0.96      4800
+## Model Performance
+
+The model was trained and evaluated on a subset of the dataset, and the following classification metrics were observed:
+
+| Label | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+| 0     | 0.96      | 0.95   | 0.95     | 1206    |
+| 1     | 0.97      | 0.96   | 0.97     | 1209    |
+| 2     | 0.98      | 0.97   | 0.97     | 1208    |
+| 3     | 0.95      | 0.97   | 0.96     | 1177    |
+
+**Overall Metrics:**
+
+- **Accuracy**: 96%
+- **Macro Average Precision, Recall, F1-Score**: 0.96
+- **Weighted Average Precision, Recall, F1-Score**: 0.96
+
+These metrics demonstrate that the model performs consistently well across all product categories.
+
+---
