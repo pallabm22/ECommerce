@@ -52,6 +52,5 @@ The model was trained and evaluated on a subset of the dataset, and the followin
 - **Macro Average Precision, Recall, F1-Score**: 0.96
 - **Weighted Average Precision, Recall, F1-Score**: 0.96
 
-These metrics demonstrate that the model performs consistently well across all product categories.
 
 ---
