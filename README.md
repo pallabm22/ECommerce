@@ -24,17 +24,6 @@ This project classifies product descriptions into various categories using a mac
 
 The classification model is built using a **TF-IDF Vectorizer** and a **K-Nearest Neighbors (KNN)** classifier. The TF-IDF vectorizer converts the product descriptions into numerical features based on the frequency of words, and the KNN classifier is used to predict the category of the product based on these features.
 
-### Pipeline:
-```python
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.pipeline import Pipeline
-
-clf = Pipeline([
-    ('vectorizer_tfidf', TfidfVectorizer()),    
-    ('KNN', KNeighborsClassifier())
-])
-
 Model Performance
 The model was trained and evaluated on the dataset with the following results:
               precision    recall  f1-score   support
